@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Khalid — IT & Financial System Consultant</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    body{
+      font-family:'Inter',sans-serif;
+      background:#f8faf9;
+      color:#1f2937;
+      line-height:1.6;
+      overflow-x:hidden;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    .container{
+      width:90%;
+      max-width:1200px;
+      margin:auto;
+    }
+
+    section{
+      padding:90px 0;
+    }
+
+    h1,h2,h3{
+      line-height:1.2;
+    }
+
+    .hero{
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      position:relative;
+      background:
+      radial-gradient(circle at top left,#d7ece7 0%,transparent 35%),
+      radial-gradient(circle at bottom right,#dce9f7 0%,transparent 35%),
+      #f8faf9;
+    }
+
+    .hero-content{
+      max-width:700px;
+      z-index:2;
+    }
+
+    .tag{
+      display:inline-block;
+      padding:10px 18px;
+      background:rgba(255,255,255,0.6);
+      backdrop-filter:blur(10px);
+      border-radius:50px;
+      margin-bottom:24px;
+      font-size:14px;
+      color:#4b5563;
+      border:1px solid rgba(255,255,255,0.4);
+    }
+
+    .hero h1{
+      font-size:72px;
+      margin-bottom:18px;
+      color:#111827;
+    }
+
+    .hero h2{
+      font-size:24px;
+      color:#4b5563;
+      margin-bottom:30px;
+      font-weight:400;
+    }
+
+    .hero p{
+      font-size:18px;
+      color:#6b7280;
+      margin-bottom:40px;
+      max-width:600px;
+    }
+
+    .buttons{
+      display:flex;
+      gap:18px;
+      flex-wrap:wrap;
+    }
+
+    .btn{
+      padding:14px 28px;
+      border-radius:14px;
+      text-decoration:none;
+      font-weight:600;
+      transition:0.3s;
+      display:inline-block;
+    }
+
+    .btn-primary{
+      background:#6ca89a;
+      color:white;
+      box-shadow:0 10px 25px rgba(108,168,154,0.3);
+    }
+
+    .btn-primary:hover{
+      transform:translateY(-3px);
+    }
+
+    .btn-secondary{
+      background:white;
+      color:#374151;
+      border:1px solid #e5e7eb;
+    }
+
+    .btn-secondary:hover{
+      background:#f3f4f6;
+    }
+
+    .section-title{
+      font-size:42px;
+      margin-bottom:18px;
+      text-align:center;
+      color:#111827;
+    }
+
+    .section-subtitle{
+      text-align:center;
+      color:#6b7280;
+      max-width:700px;
+      margin:auto;
+      margin-bottom:60px;
+    }
+
+    .glass-card{
+      background:rgba(255,255,255,0.65);
+      backdrop-filter:blur(12px);
+      border:1px solid rgba(255,255,255,0.4);
+      border-radius:24px;
+      padding:30px;
+      box-shadow:0 10px 35px rgba(0,0,0,0.06);
+      transition:0.3s;
+    }
+
+    .glass-card:hover{
+      transform:translateY(-5px);
+    }
+
+    .about-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:40px;
+    }
+
+    .timeline{
+      display:flex;
+      flex-direction:column;
+      gap:24px;
+    }
+
+    .timeline-item{
+      position:relative;
+      padding-left:30px;
+      border-left:3px solid #b7d7cf;
+    }
+
+    .timeline-item h3{
+      margin-bottom:10px;
+      color:#111827;
+    }
+
+    .skills-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:24px;
+    }
+
+    .skill{
+      background:white;
+      padding:24px;
+      border-radius:20px;
+      box-shadow:0 8px 24px rgba(0,0,0,0.05);
+    }
+
+    .progress{
+      height:8px;
+      background:#e5e7eb;
+      border-radius:50px;
+      overflow:hidden;
+      margin-top:14px;
+    }
+
+    .progress-bar{
+      height:100%;
+      background:#6ca89a;
+    }
+
+    .projects-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:24px;
+    }
+
+    .project-card{
+      background:white;
+      border-radius:24px;
+      padding:28px;
+      box-shadow:0 8px 24px rgba(0,0,0,0.05);
+      transition:0.3s;
+    }
+
+    .project-card:hover{
+      transform:translateY(-6px);
+    }
+
+    .project-card h3{
+      margin-bottom:12px;
+    }
+
+    .badge{
+      display:inline-block;
+      padding:6px 12px;
+      border-radius:30px;
+      background:#e4f2ee;
+      color:#4b5563;
+      font-size:12px;
+      margin-top:14px;
+    }
+
+    .education,
+    .organization{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:24px;
+    }
+
+    .contact-box{
+      text-align:center;
+      padding:50px;
+    }
+
+    footer{
+      padding:40px 0;
+      text-align:center;
+      color:#6b7280;
+      border-top:1px solid #e5e7eb;
+    }
+
+    @media(max-width:768px){
+
+      .hero h1{
+        font-size:48px;
+      }
+
+      .hero h2{
+        font-size:20px;
+      }
+
+      .about-grid{
+        grid-template-columns:1fr;
+      }
+
+      .section-title{
+        font-size:34px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<section class="hero">
+  <div class="container">
+    <div class="hero-content">
+      <div class="tag">Personal Branding Portfolio</div>
+
+      <h1>KHALID</h1>
+
+      <h2>IT & Financial System Consultant</h2>
+
+      <p>
+        Membangun sistem informasi dan manajemen keuangan yang terintegrasi,
+        efisien, transparan, dan terpercaya dengan pengalaman lebih dari 20 tahun
+        di bidang rumah sakit, pendidikan, dan perbankan.
+      </p>
+
+      <div class="buttons">
+        <a href="#experience" class="btn btn-primary">Lihat Pengalaman</a>
+        <a href="#contact" class="btn btn-secondary">Hubungi Saya</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="container">
+    <h2 class="section-title">Tentang Saya</h2>
+    <p class="section-subtitle">
+      Profesional berpengalaman di bidang teknologi informasi, manajemen keuangan,
+      dan pengembangan sistem informasi rumah sakit.
+    </p>
+
+    <div class="about-grid">
+      <div class="glass-card">
+        <h3>Konsultan IT & Keuangan</h3>
+        <p>
+          Berpengalaman dalam pengembangan SIMRS, sistem keuangan berbasis intranet,
+          database management, serta pengembangan aplikasi administrasi dan billing.
+        </p>
+      </div>
+
+      <div class="glass-card">
+        <h3>Leadership & Education</h3>
+        <p>
+          Memiliki pengalaman sebagai pengajar multimedia IT, aktivis organisasi,
+          serta berbagai posisi kepemimpinan yang membentuk karakter profesional
+          yang terpercaya dan visioner.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="container">
+    <h2 class="section-title">Pengalaman Profesional</h2>
+
+    <div class="timeline">
+
+      <div class="glass-card timeline-item">
+        <h3>Konsultan IT & Keuangan</h3>
+        <p>RSU Permata Bunda Tasikmalaya — 2019 hingga sekarang</p>
+      </div>
+
+      <div class="glass-card timeline-item">
+        <h3>Tenaga Ahli Akuntansi</h3>
+        <p>RSUD dr. Soekardjo Tasikmalaya — 2009 - 2019</p>
+      </div>
+
+      <div class="glass-card timeline-item">
+        <h3>Management Trainee</h3>
+        <p>Bank Syariah Mandiri — 2003 - 2004</p>
+      </div>
+
+      <div class="glass-card timeline-item">
+        <h3>Pengajar Multimedia & IT</h3>
+        <p>SMKN 1 Tasikmalaya & LP3I — 2005 - 2009</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="container">
+
+    <h2 class="section-title">Keahlian</h2>
+
+    <div class="skills-grid">
+
+      <div class="skill">
+        <h3>SIMRS</h3>
+        <div class="progress"><div class="progress-bar" style="width:95%"></div></div>
+      </div>
+
+      <div class="skill">
+        <h3>Financial Information System</h3>
+        <div class="progress"><div class="progress-bar" style="width:92%"></div></div>
+      </div>
+
+      <div class="skill">
+        <h3>Database Management</h3>
+        <div class="progress"><div class="progress-bar" style="width:90%"></div></div>
+      </div>
+
+      <div class="skill">
+        <h3>PHP & Visual FoxPro</h3>
+        <div class="progress"><div class="progress-bar" style="width:88%"></div></div>
+      </div>
+
+      <div class="skill">
+        <h3>Graphic & Web Design</h3>
+        <div class="progress"><div class="progress-bar" style="width:85%"></div></div>
+      </div>
+
+      <div class="skill">
+        <h3>Networking</h3>
+        <div class="progress"><div class="progress-bar" style="width:80%"></div></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="container">
+
+    <h2 class="section-title">Projects & Systems</h2>
+
+    <div class="projects-grid">
+
+      <div class="project-card">
+        <h3>Sistem Informasi Zakat</h3>
+        <p>Pengembangan sistem pengelolaan zakat berbasis digital.</p>
+        <span class="badge">PHP • MySQL</span>
+      </div>
+
+      <div class="project-card">
+        <h3>Sistem Informasi KBIH</h3>
+        <p>Sistem administrasi dan pengelolaan kelompok bimbingan ibadah haji.</p>
+        <span class="badge">Database System</span>
+      </div>
+
+      <div class="project-card">
+        <h3>Back Office Perbankan</h3>
+        <p>Aplikasi administrasi dan pengelolaan operasional internal perbankan.</p>
+        <span class="badge">Financial System</span>
+      </div>
+
+      <div class="project-card">
+        <h3>Sistem Keuangan RS</h3>
+        <p>Sistem keuangan rumah sakit berbasis intranet yang transparan dan cepat.</p>
+        <span class="badge">SIMRS</span>
+      </div>
+
+      <div class="project-card">
+        <h3>Aplikasi Billing Pasien</h3>
+        <p>Digitalisasi sistem tagihan dan kuitansi pasien rumah sakit.</p>
+        <span class="badge">Hospital Billing</span>
+      </div>
+
+      <div class="project-card">
+        <h3>Aplikasi Psikotes</h3>
+        <p>Pengembangan aplikasi laporan hasil psikotes berbasis komputer.</p>
+        <span class="badge">Desktop Application</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="education">
+  <div class="container">
+
+    <h2 class="section-title">Pendidikan & Sertifikasi</h2>
+
+    <div class="education">
+
+      <div class="glass-card">
+        <h3>Universitas Padjadjaran</h3>
+        <p>S1 Manajemen — Fakultas Ekonomi</p>
+      </div>
+
+      <div class="glass-card">
+        <h3>FMIPA UNPAD</h3>
+        <p>Jurusan Kimia</p>
+      </div>
+
+      <div class="glass-card">
+        <h3>TOEFL & TOEIC</h3>
+        <p>TOEFL 560 • TOEIC 650</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="organization">
+  <div class="container">
+
+    <h2 class="section-title">Leadership & Organization</h2>
+
+    <div class="organization">
+
+      <div class="glass-card">
+        <h3>Ketua PERMAIS FE UNPAD</h3>
+      </div>
+
+      <div class="glass-card">
+        <h3>Pjs Ketua Senat Mahasiswa</h3>
+      </div>
+
+      <div class="glass-card">
+        <h3>Korwil APCI Jawa Barat</h3>
+      </div>
+
+      <div class="glass-card">
+        <h3>Kepala Sekolah TKA-TPA</h3>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="container">
+
+    <div class="glass-card contact-box">
+
+      <h2 class="section-title">Mari Berkolaborasi</h2>
+
+      <p>Email: akh.khalid@gmail.com</p>
+      <p>Phone: 0818470602 / 082129000598</p>
+      <p>Tasikmalaya, Jawa Barat</p>
+
+      <br>
+
+      <a href="mailto:akh.khalid@gmail.com" class="btn btn-primary">
+        Hubungi Saya
+      </a>
+
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    © 2026 Khalid — Personal Branding Portfolio
+  </div>
+</footer>
+
+</body>
+</html>
